@@ -18,5 +18,4 @@ export default class TimerModel extends Model {
   @field("final_date") final_date!: string;
   @field("repeat") repeat!: string;
   @field("user_id") user_id!: string;
-  @immutableRelation("users", "user_id") user!: UserModel;
 }

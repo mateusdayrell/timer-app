@@ -1,0 +1,14 @@
+import Svg, { Path } from "react-native-svg"
+import React from 'react'
+
+export default function LogoSvg() {
+  return (
+    <Svg width="94" height="94" viewBox="0 0 94 94" fill="none">
+        <Path d="M48.7361 33.6798H71.3846" stroke="#292D32" stroke-width="6.471" stroke-linecap="round" stroke-linejoin="round"/>
+        <Path d="M22.8953 33.6798L26.1308 36.9153L35.8373 27.2088" stroke="#292D32" stroke-width="6.471" stroke-linecap="round" stroke-linejoin="round"/>
+        <Path d="M48.7361 63.8779H71.3846" stroke="#292D32" stroke-width="6.471" stroke-linecap="round" stroke-linejoin="round"/>
+        <Path d="M22.8953 63.8779L26.1308 67.1134L35.8373 57.4069" stroke="#292D32" stroke-width="6.471" stroke-linecap="round" stroke-linejoin="round"/>
+        <Path d="M34.198 90.28H60.082C81.652 90.28 90.28 81.652 90.28 60.082V34.198C90.28 12.628 81.652 4 60.082 4H34.198C12.628 4 4 12.628 4 34.198V60.082C4 81.652 12.628 90.28 34.198 90.28Z" stroke="#292D32" stroke-width="6.471" stroke-linecap="round" stroke-linejoin="round"/>
+    </Svg>
+  )
+}
