@@ -6,12 +6,12 @@ export const timerSchema = tableSchema({
   columns: [
     { name: "title", type: "string" },
     { name: "description", type: "string", isOptional: true },
-    { name: "initial_time", type: "string", isOptional: true },
-    { name: "final_time", type: "string", isOptional: true },
-    { name: "initial_date", type: "string", isOptional: true },
-    { name: "final_date", type: "string", isOptional: true },
-    { name: "repeat", type: "string", isOptional: true },
+    { name: "date", type: "string", isOptional: true },
+    { name: "day_of_week", type: "string", isOptional: true },
+    { name: "time", type: "string", isOptional: true },
+    { name: "repeat", type: "boolean", isOptional: true },
     { name: "user_id", type: "string" },
     { name: "is_done", type: "boolean", isOptional: true },
+    { name: "ntf_id", type: "string", isOptional: true },
   ],
 });

@@ -1,13 +1,16 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 import { authenticateUser } from "../../../store/reducers/authSlice";
 import { CustomHeader } from "../../../components/CustomHeader";
 import Input from "../../../components/Form/Input";
 import InputPassword from "../../../components/Form/InputPassword";
 import { useAppDispatch } from "../../../hooks";
+import { useNavigation } from "@react-navigation/native";
+import { AuthNavigationProp } from "../../../routes/auth.routes";
 
 export function SignIn() {
   const dispatch = useAppDispatch();
+  const navigation = useNavigation<AuthNavigationProp>();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,10 +19,12 @@ export function SignIn() {
       email, password, loggedIn: true
     }));
 
+  const handleNavigate = () => navigation.navigate('SignUp')
+
   return (
     <View className="w-full h-full bg-cinza-500">
       <CustomHeader />
-      <View className="flex items-center justify-center bg-cinza-500">
+      <View className="flex items-center justify-center bg-cinza-500 h-full mt-14">
         <View className="h-4/5 w-4/5">
           <Text className="text-3xl text-center mb-4 text-verde-100">Sign in</Text>
           <Input 
@@ -48,6 +53,13 @@ export function SignIn() {
             onPress={() => handleSignIn()}
           >
             <Text className="font-medium text-xl text-white">Entrar</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            className="flex items-center p-2 mt-2 border border-transparent rounded-lg"
+            onPress={() => handleNavigate()}
+          >
+            <Text className="font-medium text-base text-verde-100 underline">Cadastre-se</Text>
           </TouchableOpacity>
         </View>
       </View>

@@ -6,6 +6,13 @@ export interface IAuthentication {
   user?: object;
   loggedIn: boolean;
 }
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
 const initialState: IAuthentication = { isProcessingRequest: false, loggedIn: false };
 export const authSlice = createSlice({
   name: 'authentication',
@@ -34,6 +41,14 @@ export const authSlice = createSlice({
         loggedIn: false,
       };
     },
+    logout: (state) => {
+      return {
+        ...state,
+        user: {},
+        isProcessingRequest: false,
+        loggedIn: false,
+      };
+    },
   },
 });
 export const authenticateUser = (userData: any) => async (dispatch: any) => {
@@ -51,6 +66,19 @@ export const authenticateUser = (userData: any) => async (dispatch: any) => {
     dispatch(error(err as any));
   }
 };
-export const { start, success, error } = authSlice.actions;
+export const signOutUser = () => async (dispatch: any) => {
+  dispatch(start());
+  try {
+    const result = dispatch(logout());
+    
+    if(result)
+      dispatch(success(result));
+    else 
+      throw "Error unauthenticating user";
+  } catch (err) {
+    dispatch(error(err as any));
+  }
+};
+export const { start, success, error, logout } = authSlice.actions;
 // export const selectAuthentication = (state: RootState) => state.authentication;
 export const authenticationReducer = authSlice.reducer;

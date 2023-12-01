@@ -1,7 +1,6 @@
 import { Model } from "@nozbe/watermelondb";
 import { Associations } from "@nozbe/watermelondb/Model";
 import { field } from "@nozbe/watermelondb/decorators";
-import UserModel from "./userModel";
 
 export default class TimerModel extends Model {
   static table = "timers";
@@ -12,10 +11,11 @@ export default class TimerModel extends Model {
 
   @field("title") title!: string;
   @field("description") description!: string;
-  @field("initial_time") initial_time!: string;
-  @field("final_time") final_time!: string;
-  @field("initial_date") initial_date!: string;
-  @field("final_date") final_date!: string;
-  @field("repeat") repeat!: string;
+  @field("date") date!: string;
+  @field("day_of_week") day_of_week!: string;
+  @field("time") time!: string;
+  @field("repeat") repeat!: boolean;
   @field("user_id") user_id!: string;
+  @field("ntf_id") ntf_id!: string;
+  @field("is_done") is_done!: boolean;
 }

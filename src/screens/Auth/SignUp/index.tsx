@@ -6,8 +6,12 @@ import { database } from "../../../database";
 import UserModel from "../../../database/models/userModel";
 import { toastError, toastSuccess } from "../../../helpers/ToastHelper";
 import { CustomHeader } from "../../../components/CustomHeader";
+import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import { AuthNavigationProp } from "../../../routes/auth.routes";
 
 export function SignUp() {
+  const navigation = useNavigation<AuthNavigationProp>();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -72,6 +76,8 @@ export function SignUp() {
     return errors
   }
 
+  const handleNavigate = () => navigation.navigate('SignIn')
+
   return (
     <View className="w-full h-full bg-cinza-500">
       <CustomHeader />
@@ -124,11 +130,11 @@ export function SignUp() {
             <Text className="font-medium text-xl text-white">Cadastrar</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity 
-            className="flex items-center p-2 mt-4 border border-transparent rounded-lg bg-verde-100"
-            onPress={loadUsers}
+          <TouchableOpacity
+            className="flex items-center p-2 mt-2 border border-transparent rounded-lg"
+            onPress={() => handleNavigate()}
           >
-            <Text className="text-1xl text-white">Voltar</Text>
+            <Text className="font-medium text-base text-verde-100 underline">Voltar</Text>
           </TouchableOpacity>
 
         </View>
